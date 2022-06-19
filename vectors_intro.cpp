@@ -17,7 +17,11 @@ int main()
 	cin>>n;
 	first.push_back(n);		//to add elements in the array dynamically
 	}
-	
+	for(auto& i :first)
+	{
+		cout<<i<<" ";
+	}
+	cout<<"\n";
 	cout<<"Front element: "<<first.front()<<"\n";		//returns the first element in the array
 	cout<<"Back element : "<<first.back()<<"\n";		//returns the last element in the array
 	
@@ -38,7 +42,7 @@ int main()
 	
 	cout <<"\nWe have now applied shrink to fit, here the vector shrinks to the size till which the elements are.";
 	//first.shrink_to_fit();
-	cout<<"\nnew capacity : "<<first.capacity();
+	cout<<"\nNew capacity : "<<first.capacity();
 	
 	cout<<"\nEnter the index of the element you want to know  :" ;
 	int in;
@@ -48,10 +52,39 @@ int main()
 	vector <int> :: iterator it;	//making a iterator to vector
 	it = first.begin();				//initialising the iterator
 	
-	cout<<"\n erasing the first element of vetor using erase function : ";
+	cout<<"\nerasing the first element of vetor using erase function : ";
 	first.erase(it);
-	first.clear();
-	cout<<"\n After clear : ";
-	cout<<"\n size :"<<first.size();
-	cout<<"\n Capacity : "<<first.capacity();
+	first.clear();		//clear makes the size 0 but capacity remains same
+	cout<<"\nAfter clear : ";
+	cout<<"\nsize :"<<first.size();
+	cout<<"\nCapacity : "<<first.capacity();
+	
+	/*emblace(iterator or the place where the element to be inserted,value to insert). */
+
+	cout<<"\nEnter the new element to insert using emplace : ";
+	int ab;
+	cin>>ab;
+	cout<<"\nInserting at beginning : ";
+	first.emplace(first.begin(),ab);
+	
+	cout<<"\nThe vector now is : ";
+	for(auto& i :first)
+	{
+		cout<<i<<" ";
+	}
+	
+	cout<<"\nEnter the new element to insert using emplace: ";
+	int cd;
+	cin>>cd;
+	cout<<"\nInserting at end : ";
+	first.emplace(first.end(),cd);
+	
+	cout<<"\nThe vector now is : ";
+	for(auto i:first)
+	{
+		cout<<i<<" ";
+	}
+	//emplace_back is used to add the element at the back of the vector.
+	
+	return 0;
 }
